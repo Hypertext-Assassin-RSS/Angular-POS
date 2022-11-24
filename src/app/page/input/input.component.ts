@@ -19,4 +19,8 @@ export class InputComponent {
   submit() {
     console.log(this.customerForm.value)
   }
+
+  clearForm(){
+    this.customerForm.reset()
+  }
 }
