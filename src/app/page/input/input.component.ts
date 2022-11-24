@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-input',
@@ -6,19 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./input.component.css']
 })
 export class InputComponent {
-  userId :string = ''
-  userName:string = ''
-  userAddress:string = ''
-  userSalary:string = ''
 
-  submit(userId:string , userName:string , userAddress:string ,userSalary:string) {
-    let customerObject = {
-      id:userId,
-      name:userName,
-      address:userAddress,
-      salary:userSalary
-    }
+  customerForm = new FormGroup({
+    customerId : new FormControl(''),
+    customerName : new  FormControl(''),
+    customerAddress : new FormControl(''),
+    customerSalary : new FormControl(''),
+  })
 
-    console.log(customerObject)
+
+  submit() {
+    console.log(this.customerForm.value)
   }
 }

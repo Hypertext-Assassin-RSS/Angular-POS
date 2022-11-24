@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InputComponent } from './page/input/input.component';
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { HomeScreenComponent } from './page/home-screen/home-screen.component';
 import {RouterOutlet} from "@angular/router";
 import {MatIconModule} from "@angular/material/icon";
@@ -27,7 +27,8 @@ import {AppRoutingModule, routingComponent} from './app-routing.module';
     FormsModule,
     RouterOutlet,
     MatIconModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

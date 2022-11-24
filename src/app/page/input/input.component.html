@@ -1,46 +1,36 @@
 
 <div class="main">
-  <h1>Customer Form</h1>
-  <form class="example-form">
-    <mat-form-field class="example-full-width">
-      <mat-label>ID</mat-label>
-      <input matInput  type="text" id="userId" name="userId" #userId>
-    </mat-form-field>
-  </form>
 
-<!--  <h1>{{userId.value}}</h1>-->
-
-  <div class="input-container">
-    <form class="example-form">
-      <mat-form-field class="example-full-width">
-        <mat-label>Name</mat-label>
-        <input matInput  type="text" id="userName" name="userName" #userName>
-      </mat-form-field>
-    </form>
-
-<!--    <h1>{{userName.value}}</h1>-->
-
-    <form class="example-form">
-      <mat-form-field class="example-full-width">
-        <mat-label>Address</mat-label>
-        <input matInput  type="text" id="userAddress" name="userAddress" #userAddress>
-      </mat-form-field>
-    </form>
-
-<!--    <h1>{{userAddress.value}}</h1>-->
-
-    <form class="example-form">
-      <mat-form-field class="example-full-width">
-        <mat-label>Salary</mat-label>
-        <input matInput  type="text" id="userSalary" name="userSalary" #userSalary>
-      </mat-form-field>
-    </form>
-
-<!--    <h1>{{userSalary.value}}</h1>-->
-
+  <div style="margin: 1rem">
+    <!--  <h1>Customer Form</h1>-->
+    <button mat-fab color="primary" disabled>
+      <mat-icon>person_add</mat-icon>
+    </button>
   </div>
+
+    <form [formGroup]="customerForm">
+      <div class="input-container">
+      <mat-form-field>
+        <mat-label>ID</mat-label>
+        <input matInput  type="text" id="userId" name="userId" formControlName="customerId">
+      </mat-form-field>
+      <mat-form-field >
+        <mat-label>Name</mat-label>
+        <input matInput  type="text" id="userName" name="userName" formControlName="customerName">
+      </mat-form-field>
+      <mat-form-field >
+        <mat-label>Address</mat-label>
+        <input matInput  type="text" id="userAddress" name="userAddress" formControlName="customerAddress">
+      </mat-form-field>
+      <mat-form-field >
+        <mat-label>Salary</mat-label>
+        <input matInput  type="text" id="userSalary" name="userSalary" formControlName="customerSalary">
+      </mat-form-field>
+  </div>
+    </form>
+
   <div class="button-container">
-    <button mat-raised-button color="primary" (click)="submit(userId.value,userName.value,userAddress.value,userSalary.value)">Submit
+    <button mat-raised-button color="primary" (click)="submit()">Submit
       <mat-icon>send_and_archive</mat-icon>
     </button>
     <button mat-raised-button color="warn">
