@@ -1,28 +1,46 @@
 
 <div class="main">
   <h1>Customer Form</h1>
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>ID</mat-label>
+      <input matInput  type="text" id="userId" name="userId" #userId>
+    </mat-form-field>
+  </form>
+
+  <h1>{{userId.value}}</h1>
+
   <div class="input-container">
     <form class="example-form">
       <mat-form-field class="example-full-width">
         <mat-label>Name</mat-label>
-        <input matInput  value="">
+        <input matInput  type="text" id="userName" name="userName" #userName>
       </mat-form-field>
     </form>
-    <form class="example-form">
-      <mat-form-field class="example-full-width">
-        <mat-label>Age</mat-label>
-        <input matInput  value="">
-      </mat-form-field>
-    </form>
+
+    <h1>{{userName.value}}</h1>
+
     <form class="example-form">
       <mat-form-field class="example-full-width">
         <mat-label>Address</mat-label>
-        <input matInput  value="">
+        <input matInput  type="text" id="userAddress" name="userAddress" #userAddress>
       </mat-form-field>
     </form>
+
+    <h1>{{userAddress.value}}</h1>
+
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Salary</mat-label>
+        <input matInput  type="text" id="userSalary" name="userSalary" #userSalary>
+      </mat-form-field>
+    </form>
+
+    <h1>{{userSalary.value}}</h1>
+
   </div>
   <div class="button-container">
-    <button mat-raised-button color="primary">Submit</button>
+    <button mat-raised-button color="primary" (click)="submit(userId.value,userName.value,userAddress.value,userSalary.value)">Submit</button>
     <button mat-raised-button color="warn">Clear</button>
   </div>
 </div>

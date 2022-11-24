@@ -6,18 +6,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InputComponent } from './input/input.component';
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
     AppComponent,
     InputComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatInputModule,
-    MatButtonModule
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        MatInputModule,
+        MatButtonModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
