@@ -10,7 +10,7 @@ export class InputComponent {
   userName:string = ''
   userAddress:string = ''
   userSalary:string = ''
-  
+
   submit(userId:string , userName:string , userAddress:string ,userSalary:string) {
     let customerObject = {
       id:userId,
