@@ -40,8 +40,19 @@
 
   </div>
   <div class="button-container">
-    <button mat-raised-button color="primary" (click)="submit(userId.value,userName.value,userAddress.value,userSalary.value)">Submit</button>
-    <button mat-raised-button color="warn">Clear</button>
+    <button mat-raised-button color="primary" (click)="submit(userId.value,userName.value,userAddress.value,userSalary.value)">Submit
+      <mat-icon>send_and_archive</mat-icon>
+    </button>
+    <button mat-raised-button color="warn">
+      <mat-icon>backspace</mat-icon>
+      Clear
+    </button>
+    <a routerLink="/home" style="text-decoration: none">
+      <button mat-raised-button color="accent">
+        <mat-icon>home</mat-icon>
+        Home
+      </button>
+    </a>
   </div>
 </div>
 
