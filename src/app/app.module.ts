@@ -11,6 +11,7 @@ import { HomeScreenComponent } from './page/home-screen/home-screen.component';
 import {RouterOutlet} from "@angular/router";
 import {MatIconModule} from "@angular/material/icon";
 import {AppRoutingModule, routingComponent} from './app-routing.module';
+import {MatTableModule} from "@angular/material/table";
 
 @NgModule({
   declarations: [
@@ -19,17 +20,18 @@ import {AppRoutingModule, routingComponent} from './app-routing.module';
     HomeScreenComponent,
     routingComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatInputModule,
-    MatButtonModule,
-    FormsModule,
-    RouterOutlet,
-    MatIconModule,
-    AppRoutingModule,
-    ReactiveFormsModule
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        MatInputModule,
+        MatButtonModule,
+        FormsModule,
+        RouterOutlet,
+        MatIconModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        MatTableModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
