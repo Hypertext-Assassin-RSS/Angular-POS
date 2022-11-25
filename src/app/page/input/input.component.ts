@@ -1,20 +1,17 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+
+export interface customerElements {
+  customerId:string;
+  customerName:string;
+  customerAddress:string;
+  customerSalary:number;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-];
+const CUSTOMER_ELEMENT_DATA : customerElements[] = [
+  {customerId:'C000',customerName:'Rajith',customerAddress:'Thoppuwa',customerSalary:0.0}
+]
 
 @Component({
   selector: 'app-input',
@@ -29,8 +26,10 @@ export class InputComponent {
     customerSalary : new FormControl(''),
   })
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+  columnNames : string[] = ['customerId','customerName','customerAddress','customerSalary'];
+
+  newDataSource = CUSTOMER_ELEMENT_DATA;
+
 
 
   submit() {
