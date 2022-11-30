@@ -12,7 +12,8 @@ import {Customer} from "./customer";
 export class CustomerComponent {
   // @ts-ignore
   customer: Customer;
-  customers:Customer[] = []
+  customers:Customer[] = [];
+  dataSource = [];
 
   addCustomerForm = new FormGroup({
     id:new FormControl('',[Validators.required]),
@@ -21,11 +22,15 @@ export class CustomerComponent {
     salary:new FormControl('',[Validators.required]),
   })
 
+  Columns:string[] = ['id','name','address','salary']
+
   constructor(public customerService:CustomerService) { }
 
   ngOnInit() {
     this.customerService.getCustomer().subscribe(response =>{
       console.log(response)
+    // @ts-ignore
+      this.dataSource = response
     })
   }
 
