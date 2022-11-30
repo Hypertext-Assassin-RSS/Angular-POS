@@ -25,4 +25,9 @@ export class CustomerService {
     const url = 'http://localhost:4000/customer/delete';
     return this.http.delete(url,{params:{id}})
   }
+
+  publicUpdateCustomer(customer:Customer){
+    const url = 'http://localhost:4000/customer/update';
+    return this.http.put<any>(url,customer)
+  }
 }
