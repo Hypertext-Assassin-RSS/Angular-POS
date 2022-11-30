@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {CustomerService} from "../customer.service";
 import {Customer} from "./customer";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 
 @Component({
@@ -24,7 +25,7 @@ export class CustomerComponent {
 
   Columns:string[] = ['id','name','address','salary']
 
-  constructor(public customerService:CustomerService) { }
+  constructor(public customerService:CustomerService,private _snackBar:MatSnackBar) { }
 
   ngOnInit() {
     this.customerService.getCustomer().subscribe(response =>{
@@ -39,6 +40,7 @@ export class CustomerComponent {
     this.customer = this.addCustomerForm.value;
     this.customerService.addCustomer(this.customer).subscribe((response:any) =>{
       console.log(response)
+      this.openSnackBar(response.message,'close')
     })
   }
 
@@ -46,8 +48,10 @@ export class CustomerComponent {
     let id = this.addCustomerForm.value.id
     console.log(id)
     // @ts-ignore
-    this.customerService.deleteCustomer(id).subscribe(response =>{
+    this.customerService.deleteCustomer(id).subscribe((response:any) =>{
       console.log(response)
+      // @ts-ignore
+      this.openSnackBar(response.message,'close')
     })
   }
 
@@ -55,5 +59,11 @@ export class CustomerComponent {
     this.addCustomerForm.reset()
   }
 
+  openSnackBar(message:string,action:string){
+    // @ts-ignore
+    this._snackBar.open(message,action,{
+      duration:5000
+    })
+  }
 
 }

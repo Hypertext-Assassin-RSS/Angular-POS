@@ -24,28 +24,24 @@
         <input matInput placeholder="Salary" formControlName="salary" />
       </mat-form-field>
       <br />
-    </div>
-    <div class="button-container">
       <button  mat-raised-button type="submit">
         <mat-icon>send_and_archive</mat-icon>
         Add Customer
       </button>
-
-      <button mat-raised-button color="accent" (click)="clearForm()">
-        Clear
-        <mat-icon>backspace</mat-icon>
-      </button>
-
-      <button mat-raised-button color="warn" (click)="deleteCustomer()">
-        Delete
-        <mat-icon>delete_sweep</mat-icon>
-      </button>
     </div>
   </form>
+  <br>
+  <div class="button-container">
+    <button mat-raised-button color="accent" (click)="clearForm()">
+      Clear
+      <mat-icon>backspace</mat-icon>
+    </button>
 
-
-
-
+    <button mat-raised-button color="warn" (click)="deleteCustomer()">
+      Delete
+      <mat-icon>delete_sweep</mat-icon>
+    </button>
+  </div>
   <br />
   <div>
     <table mat-table [dataSource]="dataSource"  class="mat-elevation-z8">

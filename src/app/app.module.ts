@@ -13,6 +13,8 @@ import {AppRoutingModule, routingComponent} from './app-routing.module';
 import {MatTableModule} from "@angular/material/table";
 import {HttpClientModule} from "@angular/common/http";
 import { CustomerComponent } from './customer/customer.component';
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { CustomerComponent } from './customer/customer.component';
         MatIconModule,
         AppRoutingModule,
         ReactiveFormsModule,
-        MatTableModule
+        MatTableModule,
+        MatSnackBarModule
     ],
   providers: [],
   bootstrap: [AppComponent]
