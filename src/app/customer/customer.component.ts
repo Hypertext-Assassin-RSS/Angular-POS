@@ -39,10 +39,11 @@ export class CustomerComponent {
     this.customer = this.addCustomerForm.value;
     this.customerService.addCustomer(this.customer).subscribe((response:any) =>{
       console.log(response)
-      this.customers.push()
     })
+  }
 
-
+  clearForm(){
+    this.addCustomerForm.reset()
   }
 
 

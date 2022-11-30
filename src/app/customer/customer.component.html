@@ -1,25 +1,45 @@
 <div class="main">
-  <form [formGroup]="addCustomerForm" (ngSubmit)="saveCustomer()">
-    <mat-form-field>
-      <input matInput placeholder="ID" formControlName="id" />
-    </mat-form-field>
-    <br />
-    <mat-form-field>
-      <input matInput placeholder="Name" formControlName="name" />
-    </mat-form-field>
-    <br />
-    <mat-form-field>
-      <input matInput placeholder="Address" formControlName="address" />
-    </mat-form-field>
-    <br />
-    <mat-form-field>
-      <input matInput placeholder="Salary" formControlName="salary" />
-    </mat-form-field>
-    <br />
-    <button  mat-raised-button type="submit">
-      Add Customer
+  <div>
+    <button mat-fab color="primary" disabled>
+      <mat-icon>person_add</mat-icon>
     </button>
+
+  </div>
+  <br />
+  <form [formGroup]="addCustomerForm" (ngSubmit)="saveCustomer()">
+    <div class="input-container">
+      <mat-form-field>
+        <input matInput placeholder="ID" formControlName="id" />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <input matInput placeholder="Name" formControlName="name" />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <input matInput placeholder="Address" formControlName="address" />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <input matInput placeholder="Salary" formControlName="salary" />
+      </mat-form-field>
+      <br />
+    </div>
+    <div class="button-container">
+      <button  mat-raised-button type="submit">
+        <mat-icon>send_and_archive</mat-icon>
+        Add Customer
+      </button>
+
+      <button mat-raised-button color="warn" (click)="clearForm()">
+        Clear
+        <mat-icon>backspace</mat-icon>
+      </button>
+    </div>
   </form>
+
+
+
 
   <br />
   <div>
