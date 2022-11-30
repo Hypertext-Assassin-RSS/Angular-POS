@@ -26,7 +26,7 @@ export class CustomerService {
     return this.http.delete(url,{params:{id}})
   }
 
-  publicUpdateCustomer(customer:Customer){
+  public UpdateCustomer(customer:Customer){
     const url = 'http://localhost:4000/customer/update';
     return this.http.put<any>(url,customer)
   }

@@ -55,6 +55,15 @@ export class CustomerComponent {
     })
   }
 
+  updateCustomer(){
+    // @ts-ignore
+    this.customer  = this.addCustomerForm.value
+    this.customerService.UpdateCustomer(this.customer).subscribe((response:any) =>{
+      console.log(response)
+      this.openSnackBar(response.message,'close')
+    })
+  }
+
   clearForm(){
     this.addCustomerForm.reset()
   }
