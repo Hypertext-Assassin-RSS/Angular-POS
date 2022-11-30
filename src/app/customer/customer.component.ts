@@ -28,9 +28,13 @@ export class CustomerComponent {
   constructor(public customerService:CustomerService,private _snackBar:MatSnackBar) { }
 
   ngOnInit() {
+    this.loadAllCustomers();
+  }
+
+  loadAllCustomers(){
     this.customerService.getCustomer().subscribe(response =>{
       console.log(response)
-    // @ts-ignore
+      // @ts-ignore
       this.dataSource = response
     })
   }
@@ -40,6 +44,8 @@ export class CustomerComponent {
     this.customer = this.addCustomerForm.value;
     this.customerService.addCustomer(this.customer).subscribe((response:any) =>{
       console.log(response)
+      this.loadAllCustomers()
+      this.clearForm()
       this.openSnackBar(response.message,'close')
     })
   }
@@ -50,6 +56,8 @@ export class CustomerComponent {
     // @ts-ignore
     this.customerService.deleteCustomer(id).subscribe((response:any) =>{
       console.log(response)
+      this.loadAllCustomers()
+      this.clearForm()
       // @ts-ignore
       this.openSnackBar(response.message,'close')
     })
@@ -60,6 +68,8 @@ export class CustomerComponent {
     this.customer  = this.addCustomerForm.value
     this.customerService.UpdateCustomer(this.customer).subscribe((response:any) =>{
       console.log(response)
+      this.loadAllCustomers()
+      this.clearForm()
       this.openSnackBar(response.message,'close')
     })
   }
