@@ -42,6 +42,15 @@ export class CustomerComponent {
     })
   }
 
+  deleteCustomer(){
+    let id = this.addCustomerForm.value.id
+    console.log(id)
+    // @ts-ignore
+    this.customerService.deleteCustomer(id).subscribe(response =>{
+      console.log(response)
+    })
+  }
+
   clearForm(){
     this.addCustomerForm.reset()
   }
