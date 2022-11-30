@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { InputComponent } from './page/input/input.component';
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
@@ -12,16 +11,19 @@ import {RouterOutlet} from "@angular/router";
 import {MatIconModule} from "@angular/material/icon";
 import {AppRoutingModule, routingComponent} from './app-routing.module';
 import {MatTableModule} from "@angular/material/table";
+import {HttpClientModule} from "@angular/common/http";
+import { CustomerComponent } from './customer/customer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    InputComponent,
     HomeScreenComponent,
-    routingComponent
+    routingComponent,
+    CustomerComponent,
   ],
     imports: [
         BrowserModule,
+        HttpClientModule,
         BrowserAnimationsModule,
         MatInputModule,
         MatButtonModule,

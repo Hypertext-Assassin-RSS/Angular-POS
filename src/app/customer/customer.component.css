@@ -15,14 +15,3 @@
   justify-content: center;
   flex-direction: column;
 }
-
-.button-container{
-  display: flex;
-  width: calc(100vw/4);
-  justify-content: space-evenly;
-}
-
-.table-container{
-  padding: 2rem;
-  width: 60vw;
-}
