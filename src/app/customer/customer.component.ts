@@ -44,17 +44,19 @@ export class CustomerComponent {
     this.customer = this.addCustomerForm.value;
     let response = this.customerService.addCustomer(this.customer).subscribe((response:any) =>{
       console.log(response)
+
+      // @ts-ignore
+      if (response.code = 200){
+        this.loadAllCustomers()
+        this.clearForm()
+        // @ts-ignore
+        this.openSnackBar(response.message,'close')
+      }else {
+        // @ts-ignore
+        this.openSnackBar(response.error,'close')
+      }
     })
-    // @ts-ignore
-    if (response.code == 200){
-      this.loadAllCustomers()
-      this.clearForm()
-      // @ts-ignore
-      this.openSnackBar(response.message,'close')
-    }else {
-      // @ts-ignore
-      this.openSnackBar(response.error,'close')
-    }
+
   }
 
   deleteCustomer(){
