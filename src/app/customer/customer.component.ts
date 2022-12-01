@@ -35,7 +35,7 @@ export class CustomerComponent {
     this.customerService.getCustomer().subscribe(response =>{
       console.log(response)
       // @ts-ignore
-      this.dataSource = response
+      this.dataSource = response.data
     })
   }
 

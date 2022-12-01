@@ -12,7 +12,7 @@ export class CustomerService {
   constructor(private  http:HttpClient) {}
 
   public getCustomer(){
-    const url  = 'http://localhost:4000/customer';
+    const url  = 'http://localhost:8080/freshfruit/api/v1/customer';
     return this.http.get(url)
   }
 
