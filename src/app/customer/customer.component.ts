@@ -64,7 +64,7 @@ export class CustomerComponent {
     this.customerService.deleteCustomer(id).subscribe((response:any) =>{
       console.log(response)
 
-      if (response.message != null){
+      if (response.code = 200){
         this.loadAllCustomers()
         this.clearForm()
         // @ts-ignore

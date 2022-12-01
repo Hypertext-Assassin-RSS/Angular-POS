@@ -22,7 +22,7 @@ export class CustomerService {
   }
 
   public deleteCustomer(id: string){
-    const url = 'http://localhost:4000/customer/delete';
+    const url = 'http://localhost:8080/freshfruit/api/v1/customer';
     return this.http.delete(url,{params:{id}})
   }
 
