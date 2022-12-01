@@ -42,12 +42,19 @@ export class CustomerComponent {
   saveCustomer(){
     // @ts-ignore
     this.customer = this.addCustomerForm.value;
-    this.customerService.addCustomer(this.customer).subscribe((response:any) =>{
+    let response = this.customerService.addCustomer(this.customer).subscribe((response:any) =>{
       console.log(response)
+    })
+    // @ts-ignore
+    if (response.status == 200){
       this.loadAllCustomers()
       this.clearForm()
+      // @ts-ignore
       this.openSnackBar(response.message,'close')
-    })
+    }else {
+      // @ts-ignore
+      this.openSnackBar(response.error,'close')
+    }
   }
 
   deleteCustomer(){
@@ -56,10 +63,16 @@ export class CustomerComponent {
     // @ts-ignore
     this.customerService.deleteCustomer(id).subscribe((response:any) =>{
       console.log(response)
-      this.loadAllCustomers()
-      this.clearForm()
-      // @ts-ignore
-      this.openSnackBar(response.message,'close')
+
+      if (response.message != null){
+        this.loadAllCustomers()
+        this.clearForm()
+        // @ts-ignore
+        this.openSnackBar(response.message,'close')
+      }else {
+        this.openSnackBar('Error','close')
+      }
+
     })
   }
 
@@ -68,9 +81,15 @@ export class CustomerComponent {
     this.customer  = this.addCustomerForm.value
     this.customerService.UpdateCustomer(this.customer).subscribe((response:any) =>{
       console.log(response)
-      this.loadAllCustomers()
-      this.clearForm()
-      this.openSnackBar(response.message,'close')
+
+      if (response.message != null){
+        this.loadAllCustomers()
+        this.clearForm()
+        this.openSnackBar(response.message,'close')
+      }else {
+        this.openSnackBar('Error','close')
+      }
+
     })
   }
 
