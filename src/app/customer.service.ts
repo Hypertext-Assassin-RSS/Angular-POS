@@ -17,7 +17,7 @@ export class CustomerService {
   }
 
   public addCustomer(customer:Customer){
-    const url = 'http://localhost:4000/customer/save';
+    const url = 'http://localhost:8080/freshfruit/api/v1/customer';
     return this.http.post<any>(url,customer)
   }
 
@@ -27,7 +27,7 @@ export class CustomerService {
   }
 
   public UpdateCustomer(customer:Customer){
-    const url = 'http://localhost:4000/customer/update';
+    const url = 'http://localhost:8080/freshfruit/api/v1/customer';
     return this.http.put<any>(url,customer)
   }
 }

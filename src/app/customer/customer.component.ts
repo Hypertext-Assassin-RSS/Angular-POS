@@ -46,7 +46,7 @@ export class CustomerComponent {
       console.log(response)
     })
     // @ts-ignore
-    if (response.status == 200){
+    if (response.code == 200){
       this.loadAllCustomers()
       this.clearForm()
       // @ts-ignore
@@ -82,7 +82,7 @@ export class CustomerComponent {
     this.customerService.UpdateCustomer(this.customer).subscribe((response:any) =>{
       console.log(response)
 
-      if (response.message != null){
+      if (response.code = 200){
         this.loadAllCustomers()
         this.clearForm()
         this.openSnackBar(response.message,'close')
