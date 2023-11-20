@@ -23,7 +23,12 @@ export class CustomerComponent {
     salary:new FormControl('',[Validators.required]),
   })
 
-  Columns:string[] = ['id','name','address','salary']
+  Columns:string[] = ['id','name','address','salary','edit']
+
+  id:string = '';
+  name:string = '';
+  address:string = '';
+  salary:string = '';
 
   constructor(public customerService:CustomerService,private _snackBar:MatSnackBar) { }
 
@@ -59,11 +64,8 @@ export class CustomerComponent {
 
   }
 
-  deleteCustomer(){
-    let id = this.addCustomerForm.value.id
-    console.log(id)
-    // @ts-ignore
-    this.customerService.deleteCustomer(id).subscribe((response:any) =>{
+  deleteCustomer(element: any){
+    this.customerService.deleteCustomer(element.id).subscribe((response:any) =>{
       console.log(response)
 
       if (response.code = 200){
@@ -104,5 +106,12 @@ export class CustomerComponent {
     this._snackBar.open(message,action,{
       duration:5000
     })
+  }
+
+  edit(element:any){    
+    this.id = element.id
+    this.name = element.name
+    this.address = element.address
+    this.salary = element.salary
   }
 }
