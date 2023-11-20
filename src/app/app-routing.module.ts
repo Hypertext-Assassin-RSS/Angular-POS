@@ -8,7 +8,7 @@ import {CustomerComponent} from "./customer/customer.component";
 
 const routes : Routes = [
   {path:'home',component:HomeScreenComponent},
-  {path:'customer',component:CustomerComponent}
+  {path:'',component:CustomerComponent}
 ]
 
 
@@ -20,5 +20,6 @@ const routes : Routes = [
 export class AppRoutingModule { }
 
 export const  routingComponent = [HomeScreenComponent,CustomerComponent]
+
 
 

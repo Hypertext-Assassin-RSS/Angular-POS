@@ -105,5 +105,4 @@ export class CustomerComponent {
       duration:5000
     })
   }
-
 }
