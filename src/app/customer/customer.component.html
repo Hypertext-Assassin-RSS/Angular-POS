@@ -6,7 +6,7 @@
 
   </div>
   <br />
-  <form [formGroup]="addCustomerForm" (ngSubmit)="saveCustomer()">
+  <form [formGroup]="addCustomerForm" (ngSubmit)="submit()">
     <div class="input-container">
       <mat-form-field>
         <input matInput placeholder="ID" formControlName="id" [(ngModel)]="id"/>
@@ -26,7 +26,7 @@
       <br />
       <button  mat-raised-button type="submit">
         <mat-icon>send_and_archive</mat-icon>
-        Add Customer
+        {{btnName}}
       </button>
     </div>
   </form>
@@ -42,10 +42,10 @@
       <mat-icon>delete_sweep</mat-icon>
     </button> -->
 
-    <button mat-raised-button color="primary" (click)="updateCustomer()">
+    <!-- <button mat-raised-button color="primary" (click)="updateCustomer()">
       Update
       <mat-icon>update</mat-icon>
-    </button>
+    </button> -->
   </div>
   <br />
   <div>

@@ -1,36 +1,29 @@
-#Use the Node.js LTS image as the base image
-FROM node:16-alpine3.11
-#Set the working directory
-# WORKDIR /app
-# #Copy the rest of the application code
-# COPY . .
-# RUN npm install
-# #Build the application
-# RUN npm run build
-# #Store html files
-# WORKDIR /user/local/apache2/htdocs
-# COPY --from=angular app/dist/basic1 .
+# Use official node image as the base image
+FROM node:latest as build
 
-# Create a directory for the application
-# RUN mkdir -p /usr/src/app
-
-
-# ----------------------------------------------------------------
 # Set the working directory
-WORKDIR src/app
-# # Copy the package.json and package-lock.json files
-COPY package.json
-# # Install the application dependencies
+WORKDIR /usr/local/app
+
+# Add the source code to app
+COPY ./ /usr/local/app/
+
+# Install all the dependencies
 RUN npm install --legacy-peer-deps
-# # Copy the rest of the application code
-# COPY . .
-# # Build the application
-RUN npm run build 
-# # Expose port 4200
-EXPOSE 4200
-# # Start the application
-CMD ["npm", "start"]
 
-# --------------------------------------------------------------------
+# Generate the build of the application
+RUN npm run build
 
 
+# Stage 2: Serve app with nginx server
+
+# Use official nginx image as the base image
+FROM nginx:latest
+
+# Copy the build output to replace the default nginx contents.
+COPY --from=build /usr/local/app/dist/angular-pos /usr/share/nginx/html
+
+# Expose port 80
+EXPOSE 80
+
+#docker build -t rajithsanjaya/angular-pos .
+#docker run -d -p 127.0.0.1:80:80 rajithsanjaya/angular-pos

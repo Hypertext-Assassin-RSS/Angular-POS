@@ -25,6 +25,9 @@ export class CustomerComponent {
 
   Columns:string[] = ['id','name','address','salary','edit']
 
+  btnName:string = 'Add Customer';
+  btnColor:string = 'primary'
+
   id:string = '';
   name:string = '';
   address:string = '';
@@ -42,6 +45,40 @@ export class CustomerComponent {
       // @ts-ignore
       this.dataSource = response.data
     })
+  }
+
+  submit(){
+    if(this.btnName == 'Add Customer'){
+      let response = this.customerService.addCustomer(this.customer).subscribe((response:any) =>{
+        console.log(response)
+  
+        // @ts-ignore
+        if (response.code = 200){
+          this.loadAllCustomers()
+          this.clearForm()
+          // @ts-ignore
+          this.openSnackBar(response.message,'close')
+        }else {
+          // @ts-ignore
+          this.openSnackBar(response.error,'close')
+        }
+      })
+
+    }else if(this.btnName == 'Update Customer'){
+      this.customerService.UpdateCustomer(this.customer).subscribe((response:any) =>{
+        console.log(response)
+  
+        if (response.code = 200){
+          this.loadAllCustomers()
+          this.clearForm()
+          this.openSnackBar(response.message,'close')
+        }else {
+          this.openSnackBar('Error','close')
+        }
+  
+      })
+
+    }
   }
 
   saveCustomer(){
@@ -109,6 +146,9 @@ export class CustomerComponent {
   }
 
   edit(element:any){    
+
+    this.btnName = 'Update Customer'
+
     this.id = element.id
     this.name = element.name
     this.address = element.address
