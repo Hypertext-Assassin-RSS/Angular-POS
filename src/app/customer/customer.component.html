@@ -9,7 +9,7 @@
   <form [formGroup]="addCustomerForm" (ngSubmit)="submit()">
     <div class="input-container">
       <mat-form-field>
-        <input matInput placeholder="ID" formControlName="id" [(ngModel)]="id"/>
+        <input matInput placeholder="ID" formControlName="id" [(ngModel)]="id" (keyup)="filter()"/>
       </mat-form-field>
       <br />
       <mat-form-field>
@@ -24,7 +24,7 @@
         <input matInput placeholder="Salary" formControlName="salary" [(ngModel)]="salary"/>
       </mat-form-field>
       <br />
-      <button  mat-raised-button type="submit">
+      <button  mat-raised-button type="submit" >
         <mat-icon>send_and_archive</mat-icon>
         {{btnName}}
       </button>
@@ -85,11 +85,14 @@
          </td>
       </ng-container>
 
-      
+
 
       <tr mat-header-row *matHeaderRowDef="Columns"></tr>
       <tr mat-row *matRowDef="let row; columns:Columns"></tr>
+
     </table>
+
+    <mat-paginator [pageSizeOptions]="[3, 6, 9, 12]" showFirstLastButtons> </mat-paginator>
   </div>
 </div>
 

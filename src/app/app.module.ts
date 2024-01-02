@@ -14,6 +14,7 @@ import {MatTableModule} from "@angular/material/table";
 import {HttpClientModule} from "@angular/common/http";
 import { CustomerComponent } from './customer/customer.component';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
         AppRoutingModule,
         ReactiveFormsModule,
         MatTableModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        MatPaginatorModule
     ],
   providers: [],
   bootstrap: [AppComponent]
